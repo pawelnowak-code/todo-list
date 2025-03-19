@@ -6,7 +6,7 @@
         },
         {
             content: "zadanie 2",
-            done: true,
+            done: false,
         },
     ];
 
@@ -36,7 +36,7 @@
             removeButton.addEventListener("click", () => { removeTask(index) });
         });
 
-        const toggleDoneButtons = document.querySelectorAll(".js-isTaskDone");
+        const toggleDoneButtons = document.querySelectorAll(".js-isTaskDoneButton");
         toggleDoneButtons.forEach((toggleDoneButton, index) => {
             toggleDoneButton.addEventListener("click", () => { toggleTaskDone(index) });
         });
@@ -50,7 +50,7 @@
         tasks.forEach((task) => {
             htmlString += `
                 <li class="tasksList__taskItem"> 
-                    <button class="tasksList__taskButton${task.done ? " tasksList__taskButton--done" : ""} js-isTaskDone">
+                    <button class="tasksList__taskButton${task.done ? " tasksList__taskButton--done" : ""} js-isTaskDoneButton">
                         ${task.done ? "✓" : ""}
                     </button>
                     <span class="tasksList__taskContent${task.done ? " tasksList__taskContent--done" : ""}">
@@ -80,7 +80,7 @@
         } else {
             newTaskElement.value = "";
         }
-        
+
         newTaskElement.focus();
     };
 

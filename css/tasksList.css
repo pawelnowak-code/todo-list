@@ -4,11 +4,37 @@
     padding: 0;
 }
 
-.tasksList__item {
+.tasksList__taskItem {
     display: grid;
     grid-template-columns: auto 1fr auto;
     grid-gap: 10px;
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
+}
+
+
+.tasksList__taskContent--done {
+    text-decoration: line-through;
+}
+
+.tasksList__taskButton {
+    border: none;
+    color: rgb(255, 255, 255);
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    background: red;
+}
+
+.tasksList__taskButton--done {
+    background: hsl(120, 61%, 34%);
+}
+
+.tasksList__taskButton--hover {
+    background: hsl(120, 61%, 37%);
+}
+
+.tasksList__taskButton--active {
+    background: hsl(120, 61%, 39%);
 }

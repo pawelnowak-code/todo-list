@@ -1,10 +1,11 @@
 {
-let tasks = [];
-
+    let tasks = [];
+    let hideDoneTasks = false;
+    
     const addNewTask = (newTaskContent) => {
-       
+
         tasks = [
-            ...tasks, 
+            ...tasks,
             {
                 content: newTaskContent,
             },
@@ -16,20 +17,20 @@ let tasks = [];
 
     const removeTask = (taskIndex) => {
         tasks = [
-            ...tasks.slice(0,taskIndex),
-            ...tasks.slice(taskIndex+1),
+            ...tasks.slice(0, taskIndex),
+            ...tasks.slice(taskIndex + 1),
         ];
         render();
     };
 
     const toggleTaskDone = (taskIndex) => {
         tasks = [
-            ...tasks.slice(0,taskIndex),
+            ...tasks.slice(0, taskIndex),
             {
                 ...tasks[taskIndex],
                 done: !tasks[taskIndex].done,
             },
-            ...tasks.slice(taskIndex+1),
+            ...tasks.slice(taskIndex + 1),
         ];
         render();
     };
@@ -61,11 +62,10 @@ let tasks = [];
         hideDoneTasks = !hideDoneTasks;
         render();
     };
-    
+
     const render = () => {
         let htmlString = "";
 
-        // for (const task of tasks ) {
         tasks.forEach((task) => {
             htmlString += `
                 <li class="tasksList__taskItem"> 
@@ -82,10 +82,28 @@ let tasks = [];
 
         document.querySelector(".js-tasksList").innerHTML = htmlString;
 
+        if (!tasks.length) {
+            document.querySelector(".js-buttons").innerHTML = "";
+            return;
+        }
+
+        if (tasks.length) {
+            const buttonsElement = document.querySelector(".js-buttons");
+            buttonsElement.innerHTML = `
+                <button class="buttons__button js-toggleHideDoneTasksBUtton">
+                  ${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
+                </button>
+                <button class="buttons__button js-markAllDoneButton"
+                  ${tasks.every(({ done }) => done) ? " disabled" : ""}
+                >
+                Ukończ wszystkie
+                </button>
+            `;
+        };
+
         bindEvents();
 
-        // do usuniecia 
-        console.log(tasks);
+
     };
 
 

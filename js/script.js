@@ -70,6 +70,8 @@ let tasks = [];
 
         bindEvents();
 
+        // do usuniecia 
+        console.log(tasks);
     };
 
 

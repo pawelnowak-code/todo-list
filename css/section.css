@@ -5,13 +5,21 @@
 }
 
 .section__header {
-    font-size: 20px;
-    padding: 20px;
-    margin: 0;
     border-bottom: 1px solid #ddd;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section__title {
+    font-size: 20px;
+    margin: 0;
+    padding: 20px;
 }
 
 .section__body {
     padding: 20px;
 }
-

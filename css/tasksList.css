@@ -13,6 +13,9 @@
     border-bottom: 1px solid #ddd;
 }
 
+.tasksList__taskItem--hidden {
+    display: none;
+}
 
 .tasksList__taskContent--done {
     text-decoration: line-through;

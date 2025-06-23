@@ -28,16 +28,17 @@
     height: 30px;
     padding: 0;
     background: red;
+    cursor: pointer;
+    transition: background-color 1s ease;
+    border-radius: 4px;
 }
 
 .tasksList__taskButton--done {
-    background: hsl(120, 61%, 34%);
+    background: hsl(120, 61%, 30%);
 }
 
-.tasksList__taskButton--hover {
-    background: hsl(120, 61%, 37%);
+.tasksList__taskButton:hover {
+    background-color: darkred;
+    transform: scale(1.1);
 }
 
-.tasksList__taskButton--active {
-    background: hsl(120, 61%, 39%);
-}
